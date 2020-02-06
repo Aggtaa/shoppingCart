@@ -1,0 +1,59 @@
+<ul class="categories">
+    <li *ngFor="let cat of categories | async" class="category" routerLink="/home/{{cat}}" routerLinkActive="active">
+            <span class="caption">{{cat}}</span>
+    </li>
+</ul>
+
+<ul class="wares">
+    <li *ngFor="let ware of wares | async" class="ware" (click)="selectWare(ware.id)">
+        <div class="ware">
+            <span>{{ware.name}}</span>
+            <span class="quantity">{{ware.quantity}}</span>
+        </div>
+    </li>
+</ul>
+
+<div id="shade" [hidden]="!activeWare" (click)="selectWare()"></div>
+<!-- inline form -->
+<div id="wareOptions" *ngIf="activeWare">
+    <div class="ware">
+        <div class="name">{{activeWare.name}}</div>
+        <div class="description">{{activeWare.description}}</div>
+    </div>
+    <form #wareForm="ngForm">
+        <div style="font-size:150%"><!--temp stub--></div>
+        <input id="wareComment" name="component" type="text" placeholder="Комментарий" [(ngModel)]="activeWare.comment">
+        <div>{{activeWare.comment}}</div>
+        <div class="buttons">
+            <span class="button edit" (click)="editActiveWare()"> 
+                <i class="fa fa-pencil-alt"></i>
+            </span>
+            <span class="button remove" (click)="selectWare()">
+                <i class="fa fa-trash-alt"></i>
+            </span>
+            <span class="button composite">
+                <i class="fa fa-minus decrease" (click)="addActiveWareQuantity(-1)" [style.disabled]="activeWare.quantity < 2"></i>
+                <i class="fa fa-plus increase" (click)="addActiveWareQuantity(+1)"></i>
+                <span class="quantity">{{activeWare.quantity}}</span>
+                <span class="button ok" (click)="commitWare()">Ок</span>
+            </span>
+        </div>
+      </form>
+</div>
+<!--
+    .product
+      .name(data-bind='text: name')
+      .description(data-bind='text: description')
+    div(style='font-size:150%')
+    input(type="text", placeholder="Комментарий", data-bind='textInput: comment')
+    div.buttons
+      span.button.edit(data-bind='click: $root.editActiveProduct') 
+        i.fas.fa-pencil-alt
+      span.button.remove(data-bind='click: $root.deselectActiveProduct') 
+        i.fas.fa-trash-alt
+      span.button.composite
+        i.fas.fa-minus.decrease(data-bind='click: $root.decreateActiveProductQuantity, css: {disabled: quantity() < 2}') 
+        span.quantity(data-bind='text: quantity')
+        i.fas.fa-plus.increase(data-bind='click: $root.increateActiveProductQuantity') 
+      span.button.ok(data-bind='click: $root.closeActiveProduct') Ок
+-->

@@ -1,0 +1,247 @@
+  $dark-primary-color    : #0288D1; 
+  $default-primary-color : #03A9F4; 
+  $light-primary-color   : #B3E5FC; 
+  $text-primary-color    : #FFFFFF;
+  $accent-color          : #448AFF; 
+  $primary-text-color    : #212121; 
+  $secondary-text-color  : #757575; 
+  $divider-color         : #BDBDBD; 
+  $background-color      : #FFFFFF;
+  
+  body {
+    background-color: $background-color;  
+    color: $primary-text-color;  
+  }
+  
+  .fa-1_5x {
+    font-size: 1.5em;
+  }
+  
+  .fa-shopping-cart {
+    padding-bottom: 2px;
+  }
+  
+  .navbar {
+    height: 4rem; /* fixed space to allow positioninig of other elevemtns on the page */
+    background-color: $default-primary-color;  
+  }
+  
+  .navbar * {
+    color: $text-primary-color;
+  }
+  
+  .nav-item:not(.active) * {
+    opacity: 0.5;
+  }
+  
+  .navbar-nav > li.nav-item {
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+  }
+  
+  .page {
+    position: fixed;
+    top: 4rem;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+  }
+  
+  ul.categories {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+  
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    height: 3rem;
+  
+    margin: 0px;
+    padding: 0px;
+  
+    background-color: $background-color;  
+    color: $primary-text-color;  
+    border-top: 1px solid $default-primary-color;  
+  }
+  
+  ul.categories > li {
+    width: 20%;
+    overflow: hidden;
+    text-align: center;
+    border-top: 3px solid transparent;
+  }
+  
+  ul.categories > li.active {
+    border-top-color: $default-primary-color;  
+  }
+  
+  ul.categories > li > span {
+    line-height: calc(3rem - 6px);
+  }
+  
+  ul.categories > li.active > span {
+    color: $dark-primary-color;  
+  }
+  
+  ul.categories > li:not(.active) ul.wares {
+    display: none;
+  }
+  
+  ul.wares {
+    display: block;
+    text-align: left;
+  
+    text-overflow: ellipsis;
+  
+    position: fixed;
+    top: 4rem;
+    left: 0px;
+    right: 0px;
+    bottom: 3rem;
+  
+    list-style: none;
+  
+    padding: 0px;
+    margin: 0px;
+    white-space: normal;
+  }
+  
+  ul.wares > li {
+    display: inline-block;
+    position: relative;
+    width: 25%;
+  
+    box-sizing: border-box;
+    border: 2px solid transparent;
+  }
+  
+  ul.wares > li:after {
+    content: "";
+    display: block;
+    padding-bottom: 100%;
+  }
+  
+  ul.wares > li > * {
+    display: table;  /* for child's vertical-align to work */
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  
+    box-sizing: border-box;
+    border: 1px solid $light-primary-color;  
+  
+    text-align: center;
+  }
+  
+  ul.wares > li > * > span {
+    display: table-cell; /* for vertical-align to work */
+    vertical-align: middle;
+  }
+  
+  ul.wares > li.selected > * {
+    background-color: $light-primary-color;  
+    border-color: $default-primary-color;  
+    color: $primary-text-color;  
+  }
+  
+  #shade {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    background-color: black;
+    opacity: 0.5;
+  }
+  
+  .ware > .quantity {
+    position: absolute;
+    right: 1px;
+    top: 1px;
+  
+    font-size: 150%;
+    line-height: 75%;
+  
+    opacity: 0.3;
+  
+    padding: 0.25rem;
+    color: $default-primary-color;  
+    $border: 1px solid $default-primary-color;  
+  }
+  
+  #wareOptions {
+    position: absolute;
+    top: 2rem;
+    left: 30%;
+    right: 2rem;
+    padding: 1rem;
+  
+    background: white;
+  }
+  
+  #wareOptions > * > * {
+    margin: 0.25rem 0;
+  }
+  
+  #wareOptions .description {
+    opacity: 0.5;
+    font-size: 85%;
+  }
+  
+  #wareOptions .fa {
+    color: $default-primary-color;  
+    $width: 2rem;
+    text-align: left;
+  }
+  
+  #wareOptions .remove {
+    $opacity: 0.5;
+    color: $light-primary-color;  
+  }
+  
+  #wareOptions input[type="text"] {
+    border: none;
+    border-bottom: 1px solid $light-primary-color;  
+    width: 100%;
+  }
+  
+  #wareOptions .buttons {
+    display: block;
+    text-align: right;
+    margin-top: 1rem;
+    white-space: nowrap;
+  }
+  
+  #wareOptions .quantity {
+    display: inline-block;
+    text-align: center;
+    $padding: 0 0.5rem;
+  }
+  
+  #wareOptions .buttons > * {
+    margin-left: 0.5rem;
+  }
+  
+  #wareOptions .button {
+    background-color: $default-primary-color;  
+    color:   $text-primary-color  ;  
+    padding: 4px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  #wareOptions .button.composite > * {
+    padding: 0px 4px;
+  }
+  
+  #wareOptions .buttons .disabled {
+    opacity: 0.3;
+  }
+  
+  #wareOptions .button.edit {
+    opacity: 0.3;
+    background-color: inherit;
+    color: inherit;
+  }

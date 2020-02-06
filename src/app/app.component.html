@@ -1,0 +1,18 @@
+<nav class="navbar navbar-expand">
+  {{getChildTitle()}}
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div id="navbarContent" class="collapse navbar-collapse"></div>
+  <ul class="navbar-nav mr-auto">
+    <li class="nav-item" routerLinkActive="active">
+      <a routerLink="/cart" class="fa fa-1_5x fa-shopping-cart nav-link"></a>
+    </li>
+    <li class="nav-item" routerLinkActive="active">
+      <a routerLink="/home" class="fa fa-1_5x fa-home nav-link"></a>
+    </li>
+  </ul>
+</nav>
+<div class="page">
+  <router-outlet></router-outlet>
+</div>

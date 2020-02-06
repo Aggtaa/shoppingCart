@@ -1,0 +1,8 @@
+<div *ngIf="!service.currentUser; then notLoggedIn else alreadyLoggedIn">
+    <ng-template #notLoggedIn>
+        <button (click)="logIn()">Войти через аккаунт Google</button>
+    </ng-template>
+    <ng-template #alreadyLoggedIn>
+        Вы уже вошли!
+    </ng-template>
+</div>

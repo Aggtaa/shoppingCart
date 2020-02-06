@@ -1,0 +1,8 @@
+<ul class="wares">
+    <li *ngFor="let ware of wares | async" class="ware" (click)="resetWareQuantity(ware.id)">
+        <div class="ware">
+            <span>{{ware.name}}</span>
+            <span class="quantity">{{ware.quantity}}</span>
+        </div>
+    </li>
+</ul>
